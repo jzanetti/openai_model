@@ -1,10 +1,13 @@
 from os.path import join
+from os import getenv
 import openai
-from process import API_TOKEN, MODEL
+from process import MODEL
+
+
 
 def sg(txt: str, max_tokens=30) -> str:
 
-    openai.api_key = API_TOKEN
+    openai.api_key = getenv("OPENAI_API_KEY")
 
     response = openai.Completion.create(
         model=MODEL,
