@@ -1,11 +1,10 @@
 from os.path import join
 from os import getenv
 import openai
-from process import MODEL
 
 
 
-def se(txt: str, max_tokens=30) -> str:
+def se(txt: str, model: str, max_tokens=30) -> str:
 
     if not txt.endswith("."):
         txt += "."
@@ -13,7 +12,7 @@ def se(txt: str, max_tokens=30) -> str:
     openai.api_key = getenv("OPENAI_API_KEY")
 
     response = openai.Completion.create(
-        model=MODEL,
+        model=model,
         prompt=f"Correct this to standard English:\n\n{txt}",
         temperature=0,
         max_tokens=max_tokens,

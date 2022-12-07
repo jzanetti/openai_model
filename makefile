@@ -7,7 +7,11 @@ override GIT_TAG    = $$(git describe --always --tags $$(git rev-list --tags --m
 override GIT_NUMBER = $$(git rev-list --count HEAD ^$(GIT_TAG))
 override TAG_LOCAL = openai_model
 override TAG_ECR = 839525146093.dkr.ecr.ap-southeast-2.amazonaws.com/openai_model:latest
-override PLATFORM = linux-64
+override PLATFORM = osx-arm64
+
+# ------------
+# PLATFORM: osx-arm64 OR linux-64
+# ------------
 
 conda_remove_build:
 	rm -rf $(CONDA_ENV_PATH)

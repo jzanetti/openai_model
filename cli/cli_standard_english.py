@@ -10,6 +10,7 @@ def get_example_usage():
         * se
             --txt mine name is test123
             --workdir /tmp/openai
+            [--model  text-curie-001]
         """
     return example_text
 
@@ -32,11 +33,18 @@ def setup_parser():
         required=True,
         help="Working directory")
 
+    parser.add_argument(
+        "--model",
+        type=str,
+        required=False,
+        default="text-curie-001",
+        help="choose OpenAI model from text-davinci-003, "
+        "text-ada-001, text-curie-001")
 
     return parser.parse_args(
         # [
         #    "--workdir", "/tmp/openai_model",
-        #    "--txt", "mine name is test",
+        #    "--txt", "mine name is test123",
         # ]
     )
 
@@ -49,7 +57,7 @@ def main():
     if not exists(args.workdir):
         makedirs(args.workdir)
 
-    output = se(args.txt)
+    output = se(args.txt, args.model)
 
     write_output(args.workdir, output)
 
