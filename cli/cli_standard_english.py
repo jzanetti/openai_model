@@ -8,7 +8,7 @@ from os import makedirs
 def get_example_usage():
     example_text = """example:
         * se
-            --txt mine name is test
+            --txt mine name is test123
             --workdir /tmp/openai
         """
     return example_text
