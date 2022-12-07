@@ -11,6 +11,7 @@ def get_example_usage():
             --txt mine name is test123
             --workdir /tmp/openai
             [--model  text-curie-001]
+            [--max_token 30]
         """
     return example_text
 
@@ -41,6 +42,13 @@ def setup_parser():
         help="choose OpenAI model from text-davinci-003, "
         "text-ada-001, text-curie-001")
 
+    parser.add_argument(
+        "--max_token",
+        type=int,
+        required=False,
+        default=30,
+        help="maximum token to be applied")
+
     return parser.parse_args(
         # [
         #    "--workdir", "/tmp/openai_model",
@@ -57,7 +65,7 @@ def main():
     if not exists(args.workdir):
         makedirs(args.workdir)
 
-    output = se(args.txt, args.model)
+    output = se(args.txt, args.model, args.max_token)
 
     write_output(args.workdir, output)
 

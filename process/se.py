@@ -4,7 +4,7 @@ import openai
 
 
 
-def se(txt: str, model: str, max_tokens=30) -> str:
+def se(txt: str, model: str, max_tokens: int) -> str:
 
     if not txt.endswith("."):
         txt += "."
