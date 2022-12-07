@@ -5,7 +5,10 @@ from process import MODEL
 
 
 
-def sg(txt: str, max_tokens=30) -> str:
+def se(txt: str, max_tokens=30) -> str:
+
+    if not txt.endswith("."):
+        txt += "."
 
     openai.api_key = getenv("OPENAI_API_KEY")
 

@@ -1,5 +1,5 @@
 import argparse
-from process.sg import sg, write_output
+from process.se import se, write_output
 from os.path import exists
 from os import makedirs
 
@@ -7,7 +7,7 @@ from os import makedirs
 
 def get_example_usage():
     example_text = """example:
-        * sg
+        * se
             --txt mine name is test
             --workdir /tmp/openai
         """
@@ -49,7 +49,7 @@ def main():
     if not exists(args.workdir):
         makedirs(args.workdir)
 
-    output = sg(args.txt)
+    output = se(args.txt)
 
     write_output(args.workdir, output)
 

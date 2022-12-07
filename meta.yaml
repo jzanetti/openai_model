@@ -10,7 +10,7 @@ build:
   script:
     - $PYTHON setup.py install
   entry_points: 
-    - sg = cli.cli_standard_english:main
+    - se = cli.cli_standard_english:main
 
 requirements:
   build:

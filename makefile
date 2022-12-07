@@ -29,6 +29,6 @@ conda_create_env:
 conda_install:
 	$(CONDA) install $(PACKAGE) -y -p $(CONDA_ENV_PATH) -c local -c conda-forge --force-reinstall 
 
-install_local: conda_build conda_create_env conda_install
+install: conda_build conda_create_env conda_install
 
 

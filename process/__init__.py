@@ -1,1 +1,1 @@
-MODEL = "text-davinci-003" # text-davinci-003, text-ada-001
+MODEL = "text-ada-001" # text-davinci-003, text-ada-001
